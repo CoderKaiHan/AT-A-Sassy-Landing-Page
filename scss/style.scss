@@ -1,3 +1,6 @@
+@import './btnConfig';
+@import './flexDisplay';
+
 
 * {
   box-sizing: border-box;
@@ -17,9 +20,44 @@ img {
 
 a {
   text-decoration: none;
+  @include set-bg($primary-color);
 }
 
 .hero {
+
+  .box{
+    @include flex(column, space-between, center, wrap);
+    background-color: $primary-color;
+    margin: 0 0 10vh 0;
+    width:100vw;
+
+    nav {
+      @include flex(row, space-between, center,wrap);
+      @include set-bg($primary-color);
+      margin:2vh 0;
+      ul {
+        @include flex();
+
+        li {
+          list-style-type: none;
+          margin-left: 5vw;
+        }
+      }
+    }
+
+    .hero-content {
+      @include set-bg($primary-color);
+      @include flex(row, space-between, center,nowrap);
+      div {
+        margin:0 2vw;
+        h1{
+          line-height: 3vh;
+        }
+      }
+    }
+  }
+
+
   // This is where the bulk of the SCSS styling needs to be done
 
   // Take a look at the other files we've built already. How can they be useful here?
